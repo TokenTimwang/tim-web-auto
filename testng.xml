@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="classes" thread-count="2">
+    <test verbose="2" preserve-order="true" name="D:/Timwangtim/JavaCode/tim-web-auto">
+        <classes/>
+    </test>
+    <test name="指定运行测试包">
+        <packages>
+            <package name="com.tim.web.test" />
+        </packages>
+    </test>
+    <test name="指定运行测试类">
+        <classes>
+            <class name="com.tim.web.test.FirstTest"/>
+        </classes>
+    </test>
+
+    <test name="指定运行测试用例">
+        <classes>
+            <class name="com.tim.web.test.FixtureTest">
+                <methods>
+                    <include name="testCase1"/>
+                </methods>
+            </class>
+            <class name="com.tim.web.test.SecondTest"/>
+        </classes>
+    </test>
+    <test name="用例分组">
+        <classes>
+            <class name="com.tim.web.test.TagTest"/>
+        </classes>
+        <!--        <groups>-->
+        <!--            <run>-->
+        <!--                <include name="功能测试"/> &lt;!&ndash; 指定执行的测试用例 &ndash;&gt;-->
+        <!--                <exclude name="异常"/> &lt;!&ndash; 排除不执行的测试用例 &ndash;&gt;-->
+        <!--            </run>-->
+        <!--        </groups>-->
+    </test>
+    <test name="用例执行顺序" preserve-order="true">
+        <classes>
+            <class name="com.tim.web.test.CaseRunTest">
+                <methods>
+                    <include name="testCase3"/>
+                    <include name="testCase1"/>
+                    <include name="testCase2"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="测试组依赖" preserve-order="true">
+        <classes>
+            <class name="com.tim.web.test.DependentGroupsTest">
+            </class>
+        </classes>
+    </test>
+    <test name="测试方法依赖" preserve-order="true">
+        <classes>
+            <class name="com.tim.web.test.DependentMethodsTest">
+            </class>
+        </classes>
+    </test>
+    <test name="通过 @Parameters 实现参数化">
+        <parameter name="add1" value="3"/>
+        <parameter name="add2" value="2"/>
+        <parameter name="result" value="5"/>
+        <classes>
+            <class name="com.tim.web.test.DataProviderTest" />
+        </classes>
+    </test>
+    <test name="通过 @DataProvider 实现参数化">
+        <classes>
+            <class name="com.tim.web.test.DataProviderTest" />
+        </classes>
+    </test>
+    <test name="其它使用技巧">
+        <classes>
+            <class name="com.tim.web.test.OtherTest" />
+        </classes>
+    </test>
+</suite>
+
+
+
